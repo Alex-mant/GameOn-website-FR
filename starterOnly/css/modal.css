@@ -115,6 +115,15 @@ main {
 
 }
 
+.errorText{
+  color: red;
+  font-size: 12px;
+}
+
+.fName, .lName, .bDate, .eMail, .qValue, .city{
+  display: none;
+}
+
 .modal-btn {
   font-size: 145%;
   background: #fe142f;

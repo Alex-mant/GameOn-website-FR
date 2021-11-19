@@ -69,6 +69,7 @@
                   name="first"
                   minlength="2"
                 /><br>
+                <p class="errorText fName">Veuillez entrer votre prénom</p>
               </div>
               <div
                 class="formData">
@@ -80,6 +81,7 @@
                   name="last"
                   minlength="2"
                 /><br>
+                <p class="errorText lName">Veuillez entrer votre nom</p>
               </div>
               <div
                 class="formData">
@@ -90,6 +92,7 @@
                   id="email"
                   name="email"
                 /><br>
+                <p class="errorText eMail">Veuillez entrer une adresse mail valide</p>
               </div>
               <div
                 class="formData">
@@ -100,11 +103,13 @@
                   id="birthdate"
                   name="birthdate"
                 /><br>
+                <p class="errorText bDate">Veuillez entrer votre date de naissance</p>
               </div>
               <div
                 class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <p class="errorText qValue">Veuillez entrer une valeur</p>
               </div>
               <p class="text-label">Quelle ville ?</p>
               <div
@@ -175,6 +180,7 @@
                   <span class="checkbox-icon"></span>
                   Portland</label
                 >
+                <p class="errorText city">Veuillez choisir au moins une ville</p>
               </div>
 
               <div
