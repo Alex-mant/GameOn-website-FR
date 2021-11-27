@@ -20,3 +20,26 @@ const nameOrSurnameRegexp = /^[a-z\-\u00C0-\u024F]{2,}$/i;
 const numberRegexp = /^\d{1,}$/;
 const emailRegexp = /^([a-zA-Z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
 const birthdayRegexp = /^(\d{4})\-(0[1-9]|1[0-2])\-(0[1-9]|1[0-9]|2[0-9]|3[0-1])$/;
+
+/* BEGIN - Function validation */
+const magicValidation = (regex) => ({value}) => regex.test(value);
+const isValidNameOrSurname = magicValidation(nameOrSurnameRegexp);
+const isValidNumber = magicValidation(numberRegexp);
+const isValidEmail = magicValidation(emailRegexp);
+const isValidBirthdate = magicValidation(birthdayRegexp);
+/* END - Function validation */
+
+/* BEGIN - Event Validation */
+const signUpValidationEvent_ = (event) => {
+  event.preventDefault();
+  const validations = [
+    isValidNameOrSurname(firstNameElement),
+    isValidNameOrSurname(lastNameElement),
+    isValidEmail(emailElement),
+    isValidBirthdate(birthDateElement),
+    isValidNumber(quantityTournamentElement),
+  ];
+
+  return validations.every((validationResult) => validationResult);
+};
+/* END - Event Validation */
