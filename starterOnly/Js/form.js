@@ -73,3 +73,15 @@ const formListeners = (htmlElement, errorElement, validationFunction) => {
   });
 };
 /* END - Input direct check*/
+
+const createEventsListeners = () => {
+  formListeners(firstNameElement, errorFirstNameElement, isValidNameOrSurname);
+  formListeners(lastNameElement, errorLastNameElement, isValidNameOrSurname);
+  formListeners(emailElement, errorEmailElement, isValidEmail);
+  formListeners(birthDateElement, errorBirthDateElement, isValidBirthdate);
+  formListeners(quantityTournamentElement, errorQuantityElement, isValidNumber);
+
+  signUpElement.addEventListener("click", signUpValidationEvent_);
+};
+
+createEventsListeners();
