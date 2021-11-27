@@ -43,3 +43,33 @@ const signUpValidationEvent_ = (event) => {
   return validations.every((validationResult) => validationResult);
 };
 /* END - Event Validation */
+
+/* BEGIN - Input direct check*/
+const borderStyleChange_ = (style) => (element) => (element.style.border = style);
+const borderStyleOnSuccess = borderStyleChange_("2px solid rgb(146, 239, 155)");
+const borderStyleOnError = borderStyleChange_("2px solid rgb(239, 146, 146)");
+
+const errorStyleChange_ = (style) => (element) => (element.style.display = style);
+const errorStyleOnSuccess = errorStyleChange_("none");
+const errorStyleOnFail = errorStyleChange_("block");
+
+const setSuccessOnForm_ = (htmlElement, errorElement) => {
+  borderStyleOnSuccess(htmlElement);
+  errorStyleOnSuccess(errorElement);
+};
+
+const setErrorOnForm_ = (htmlElement, errorElement) => {
+  borderStyleOnError(htmlElement);
+  errorStyleOnFail(errorElement);
+};
+
+const formListeners = (htmlElement, errorElement, validationFunction) => {
+  htmlElement.addEventListener("blur", () => {
+    if (validationFunction(htmlElement.value)) {
+      setSuccessOnForm_(htmlElement, errorElement);
+    } else {
+      setErrorOnForm_(htmlElement, errorElement);
+    }
+  });
+};
+/* END - Input direct check*/
