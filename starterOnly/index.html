@@ -12,7 +12,7 @@
     />
     <script src="/GameOn-website-FR/starterOnly/Js/modal.js" defer></script>
     <script src="/GameOn-website-FR/starterOnly/Js/form.js" defer></script>
-    <script src="/GameOn-website-FR/starterOnly/Js/issue3.js" defer></script>
+    <!-- <script src="/GameOn-website-FR/starterOnly/Js/issue3.js" defer></script> -->
   </head>
   <body>
     <div class="topnav" id="myTopnav">
@@ -72,7 +72,7 @@
                   name="first"
                   minlength="2"
                 /><br>
-                <p class="errorText fName">Veuillez entrer votre prénom</p>
+                <p class="error-fName">Veuillez entrer votre prénom - 2 caratères minimum</p>
               </div>
               <div
                 class="formData">
@@ -84,7 +84,7 @@
                   name="last"
                   minlength="2"
                 /><br>
-                <p class="errorText lName">Veuillez entrer votre nom</p>
+                <p class="error-lName">Veuillez entrer votre nom - 2 caratères minimum</p>
               </div>
               <div
                 class="formData">
@@ -95,7 +95,7 @@
                   id="email"
                   name="email"
                 /><br>
-                <p class="errorText eMail">Veuillez entrer une adresse mail valide</p>
+                <p class="error-eMail">Veuillez entrer une adresse mail valide</p>
               </div>
               <div
                 class="formData">
@@ -106,17 +106,17 @@
                   id="birthdate"
                   name="birthdate"
                 /><br>
-                <p class="errorText bDate">Veuillez entrer votre date de naissance</p>
+                <p class="error-bDate">Veuillez entrer votre date de naissance - JJ/MM/AAAA</p>
               </div>
               <div
                 class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
-                <p class="errorText qValue">Veuillez entrer une valeur</p>
+                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" value="0">
+                <p class="error-qValue">Veuillez entrer une valeur numérique</p>
               </div>
               <p class="text-label">Quelle ville ?</p>
               <div
-                class="formData">
+                class="formData city-c">
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -183,7 +183,7 @@
                   <span class="checkbox-icon"></span>
                   Portland</label
                 >
-                <p class="errorText city">Veuillez choisir au moins une ville</p>
+                <p class="error-city">Veuillez choisir au moins une ville</p>
               </div>
 
               <div
