@@ -34,13 +34,9 @@ function editNav() {
 }
 
 // BEGIN - launch modal event
-const launchModalEvent_ = (btn) =>
-  btn.addEventListener(
-    "click",
-    (launchModal = () => {
-      elements.modalbg.style.display = "block";
-    })
-  );
+const launchModalEvent_ = (btn) => btn.addEventListener("click", launchModal = () => {
+  elements.modalbg.style.display = "block";
+});
 // END - launch modal event
 
 // BEGIN - close modal form
