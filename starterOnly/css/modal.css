@@ -194,12 +194,31 @@ main {
   position: relative;
   color: #fff;
   padding-top: 10px;
+  height: 100%;
 }
 
 .modal-body {
+  height: 100%;
   padding: 15px 8%;
   margin: 15px auto;
 }
+
+.modal-body form{
+  display: block;
+}
+.confirmation-modal{
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.confirm-container{
+  display: flex;
+  flex-direction: column;
+}
+.confirm-message{
+  margin: 65% 10%;
+}
+
 
 label {
   font-family: var(--font-default);
@@ -239,12 +258,7 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-/* 
-input[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: red;
-} */
+
 .checkbox-label,
 .checkbox2-label {
   cursor: pointer;
