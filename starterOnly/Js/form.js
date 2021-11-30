@@ -25,21 +25,23 @@ const townSelector = place => {
 // END - Selection des villes
 
 // BEGIN - Event Validation
+
+
 const signUpValidationEvent_ = (event) => {
   event.preventDefault();
-  const validations = [
-    isValidName(elements.firstName.value),
-    isValidSurname(elements.lastName.value),
-    isValidEmail(elements.email.value),
-    isValidBirthdate(elements.birthDate.value),
-    isValidNumber(elements.quantityTournament.value),
-    citiesSelected.length < Number(elements.quantityTournament.value)
-  ];
   
+  const validations = [
+  isValidName(elements.firstName.value),
+  isValidSurname(elements.lastName.value),
+  isValidEmail(elements.email.value),
+  isValidBirthdate(elements.birthDate.value),
+  isValidNumber(elements.quantityTournament.value),
+];
   if (validations.includes(false)){
-    reset();
+    alert("Veuillez finir de compléter le formulaire svp")
+
   } else {
-    console.log("Confirmation de l'inscription !");
+    elements.modalForm.style.display = "none";
   };
 
 };

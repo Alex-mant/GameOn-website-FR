@@ -162,6 +162,10 @@ main {
   font-size: 16px;
 }
 
+#btn-form-submit{
+  background-color: #585555;
+}
+
 .button:hover {
   background: #3876ac;
 }
@@ -204,7 +208,7 @@ main {
 }
 
 .modal-body form{
-  display: none;
+  display: block;
 }
 .confirmation-modal{
   height: 100%;

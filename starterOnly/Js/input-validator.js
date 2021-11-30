@@ -20,12 +20,33 @@ const setErrorOnForm_ = (htmlElement, errorElement) => {
 const formListeners = (elementType, validationFunction) => {
   const element = elements[elementType];
   const errorElement = elements.error[elementType];
+ 
 
   element.addEventListener("blur", () => {
+    const submitButtonEnabled = () => {
+      const directValidations = [
+        isValidName(elements.firstName.value),
+        isValidSurname(elements.lastName.value),
+        isValidEmail(elements.email.value),
+        isValidBirthdate(elements.birthDate.value),
+        isValidNumber(elements.quantityTournament.value),
+      ];
+      if (!directValidations.includes(false)){
+        const submitButton = document.querySelector(".btn-submit")
+        submitButton.style.backgroundColor = "#fe142f";
+        submitButton.disabled = false;
+      }
+    }
+
     if (validationFunction(element.value)) {
       setSuccessOnForm_(element, errorElement);
+      submitButtonEnabled();
+      
+
     } else {
       setErrorOnForm_(element, errorElement);
+      document.querySelector(".btn-submit").disabled = true;
+      
     }
   });
 };
