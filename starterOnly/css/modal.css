@@ -152,7 +152,7 @@ main {
 
 /* Modal form */
 
-.button{
+.button {
   background: #fe142f;
   margin-top: 0.5em;
   padding: 1em;
@@ -162,7 +162,7 @@ main {
   font-size: 16px;
 }
 
-#btn-form-submit{
+#btn-form-submit {
   background-color: #585555;
 }
 
@@ -207,22 +207,21 @@ main {
   margin: 15px auto;
 }
 
-.modal-body form{
+.modal-body form {
   display: block;
 }
-.confirmation-modal{
+.confirmation-modal {
   height: 100%;
   display: flex;
   align-items: center;
 }
-.confirm-container{
+.confirm-container {
   display: flex;
   flex-direction: column;
 }
-.confirm-message{
+.confirm-message {
   margin: 65% 10%;
 }
-
 
 label {
   font-family: var(--font-default);
@@ -353,7 +352,8 @@ input {
 .close:after {
   transform: rotate(-45deg);
 }
-.btn-submit,.btn-close,
+.btn-submit,
+.btn-close,
 .btn-signup {
   background: #fe142f;
   display: block;
