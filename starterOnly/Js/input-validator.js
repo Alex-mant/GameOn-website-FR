@@ -1,19 +1,19 @@
-const borderStyleChange_ = (style) => (element) => (element.style.border = style);
-const borderStyleOnSuccess_ = borderStyleChange_("2px solid rgb(146, 239, 155)");
-const borderStyleOnError_ = borderStyleChange_("2px solid rgb(239, 146, 146)");
+const borderStyleChange = (style) => (element) => (element.style.border = style);
+const borderStyleOnSuccess = borderStyleChange("2px solid rgb(146, 239, 155)");
+const borderStyleOnError = borderStyleChange("2px solid rgb(239, 146, 146)");
 
-const errorStyleChange_ = (style) => (element) => (element.style.display = style);
-const errorStyleOnSuccess_ = errorStyleChange_("none");
-const errorStyleOnFail_ = errorStyleChange_("block");
+const errorStyleChange = (style) => (element) => (element.style.display = style);
+const errorStyleOnSuccess = errorStyleChange("none");
+const errorStyleOnFail = errorStyleChange("block");
 
-const setSuccessOnForm_ = (htmlElement, errorElement) => {
-  borderStyleOnSuccess_(htmlElement);
-  errorStyleOnSuccess_(errorElement);
+const setSuccessOnForm = (htmlElement, errorElement) => {
+  borderStyleOnSuccess(htmlElement);
+  errorStyleOnSuccess(errorElement);
 };
 
-const setErrorOnForm_ = (htmlElement, errorElement) => {
-  borderStyleOnError_(htmlElement);
-  errorStyleOnFail_(errorElement);
+const setErrorOnForm = (htmlElement, errorElement) => {
+  borderStyleOnError(htmlElement);
+  errorStyleOnFail(errorElement);
 };
 
 const formListeners = (elementType, validationFunction) => {
@@ -22,14 +22,8 @@ const formListeners = (elementType, validationFunction) => {
 
   element.addEventListener("blur", () => {
     const submitButtonEnabled = () => {
-      const directValidations = [
-        isValidName(elements.firstName.value),
-        isValidSurname(elements.lastName.value),
-        isValidEmail(elements.email.value),
-        isValidBirthdate(elements.birthDate.value),
-        isValidNumber(elements.quantityTournament.value),
-      ];
-      if (!directValidations.includes(false)) {
+      
+      if (isFormValid()) {
         const submitButton = document.querySelector(".btn-submit");
         submitButton.style.backgroundColor = "#fe142f";
         submitButton.disabled = false;
@@ -37,11 +31,25 @@ const formListeners = (elementType, validationFunction) => {
     };
 
     if (validationFunction(element.value)) {
-      setSuccessOnForm_(element, errorElement);
+      setSuccessOnForm(element, errorElement);
       submitButtonEnabled();
     } else {
-      setErrorOnForm_(element, errorElement);
+      setErrorOnForm(element, errorElement);
       document.querySelector(".btn-submit").disabled = true;
     }
   });
+};
+
+const isFormValid = () =>{
+  const validations = [
+    isValidName(elements.firstName.value),
+    isValidSurname(elements.lastName.value),
+    isValidEmail(elements.email.value),
+    isValidBirthdate(elements.birthDate.value),
+    isValidNumber(elements.quantityTournament.value),
+    citiesSelected.length <= Number(elements.quantityTournament.value),
+  ];
+
+  console.log(!validations.includes(false));
+  return !validations.includes(false)
 };

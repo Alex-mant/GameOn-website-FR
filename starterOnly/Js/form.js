@@ -26,20 +26,13 @@ const townSelector = (place) => {
 
 // BEGIN - Event Validation
 
-const signUpValidationEvent_ = (event) => {
+const signUpValidationEvent = (event) => {
   event.preventDefault();
-
-  const validations = [
-    isValidName(elements.firstName.value),
-    isValidSurname(elements.lastName.value),
-    isValidEmail(elements.email.value),
-    isValidBirthdate(elements.birthDate.value),
-    isValidNumber(elements.quantityTournament.value),
-  ];
-  if (validations.includes(false)) {
-    alert("Veuillez finir de compléter le formulaire svp");
+  
+  if (isFormValid()) {
+    elements.modal.form.style.display = "none";
   } else {
-    elements.modalForm.style.display = "none";
+    alert("Veuillez finir de compléter le formulaire svp");
   }
 };
 // END - Event Validation
@@ -52,7 +45,9 @@ const createFormEventsListeners = () => {
   formListeners("quantityTournament", isValidNumber);
 
   elements.checkCity.forEach(townSelector);
-  elements.signUp.addEventListener("click", signUpValidationEvent_);
+  elements.signUp.addEventListener("click", signUpValidationEvent);
 };
 
 createFormEventsListeners();
+
+
