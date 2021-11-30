@@ -20,12 +20,14 @@ const elements = {
 };
 /* END - DOM ELEMENTS*/
 
+/* BEGIN - Fonction reset */
 const reset = () => {
   elements.modalForm.reset();
   citiesSelected = [];
 };
+/* END - Fonction reset */
 
-/**/
+/*BEGIN - Selection des villes en fonction de la valeur répondue à "combien de tournoi ?" */
 let citiesSelected = [];
 const ensureTownChecked = () => elements.checkCity.forEach(p => p.checked = citiesSelected.includes(p));
 
@@ -42,7 +44,7 @@ const townSelector = place => {
     ensureTownChecked();
   });
 }
-/**/
+/*END - Selection des villes*/
 
 /* BEGIN - Event Validation */
 const signUpValidationEvent_ = (event) => {
