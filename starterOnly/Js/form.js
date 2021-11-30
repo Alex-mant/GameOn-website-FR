@@ -1,87 +1,79 @@
 /* BEGIN - DOM ELEMENTS*/
-const formElement = document.getElementById("form");
-const firstNameElement = document.getElementById("first");
-const lastNameElement = document.getElementById("last");
-const emailElement = document.getElementById("email");
-const birthDateElement = document.getElementById("birthdate");
-const quantityTournamentElement = document.getElementById("quantity");
-const signUpElement = document.querySelector(".btn-submit");
-/* BEGIN - ERROR MESSAGE ELEMENTS */
-const errorFirstNameElement = document.querySelector("p.error-fName");
-const errorLastNameElement = document.querySelector("p.error-lName");
-const errorEmailElement = document.querySelector("p.error-eMail");
-const errorBirthDateElement = document.querySelector("p.error-bDate");
-const errorCityElement = document.querySelector("p.error-city");
-const errorQuantityElement = document.querySelector("p.error-qValue");
-/* END - ERROR MESSAGE ELEMENTS*/
+const elements = {
+  form : document.getElementById("form"),
+  firstName : document.getElementById("first"),
+  lastName : document.getElementById("last"),
+  email : document.getElementById("email"),
+  birthDate : document.getElementById("birthdate"),
+  quantityTournament : document.getElementById("quantity"),
+  checkCity : document.querySelectorAll(".city-location"),
+  signUp : document.querySelector(".btn-submit"),
+  modalForm : document.querySelector(".modal-body form"),
+  error : {
+    firstName : document.querySelector("p.error-fName"),
+    lastName : document.querySelector("p.error-lName"),
+    email : document.querySelector("p.error-eMail"),
+    birthDate : document.querySelector("p.error-bDate"),
+    city : document.querySelector("p.error-city"),
+    quantityTournament : document.querySelector("p.error-qValue")
+  }
+};
 /* END - DOM ELEMENTS*/
 
-const nameOrSurnameRegexp = /^[a-z\-\u00C0-\u024F]{2,}$/i;
-const numberRegexp = /^\d{1,}$/;
-const emailRegexp = /^([a-zA-Z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
-const birthdayRegexp = /^(\d{4})\-(0[1-9]|1[0-2])\-(0[1-9]|1[0-9]|2[0-9]|3[0-1])$/;
+const reset = () => {
+  elements.modalForm.reset();
+  citiesSelected = [];
+};
 
-/* BEGIN - Function validation */
-const magicValidation = (regex) => (value) => regex.test(value);
-const isValidNameOrSurname = magicValidation(nameOrSurnameRegexp);
-const isValidNumber = magicValidation(numberRegexp);
-const isValidEmail = magicValidation(emailRegexp);
-const isValidBirthdate = magicValidation(birthdayRegexp);
-/* END - Function validation */
+/**/
+let citiesSelected = [];
+const ensureTownChecked = () => elements.checkCity.forEach(p => p.checked = citiesSelected.includes(p));
+
+const townSelector = place => {
+    place.addEventListener("click",() =>{ 
+    if (citiesSelected.includes(place)){
+      citiesSelected = citiesSelected.filter(p => p !== place);
+    } else if (citiesSelected.length < Number(elements.quantityTournament.value)) {
+      citiesSelected.push(place);
+    } else {
+      alert('Trop de villes selectionnées');
+    }
+
+    ensureTownChecked();
+  });
+}
+/**/
 
 /* BEGIN - Event Validation */
 const signUpValidationEvent_ = (event) => {
   event.preventDefault();
   const validations = [
-    isValidNameOrSurname(firstNameElement.value),
-    isValidNameOrSurname(lastNameElement.value),
-    isValidEmail(emailElement.value),
-    isValidBirthdate(birthDateElement.value),
-    isValidNumber(quantityTournamentElement.value),
+    isValidName(elements.firstName.value),
+    isValidSurname(elements.lastName.value),
+    isValidEmail(elements.email.value),
+    isValidBirthdate(elements.birthDate.value),
+    isValidNumber(elements.quantityTournament.value),
+    citiesSelected.length < Number(elements.quantityTournament.value)
   ];
+  
+  if (validations.includes(false)){
+    reset();
+  } else {
+    console.log("Confirmation de l'inscription !");
+  };
 
-  return validations.every((validationResult) => validationResult);
 };
 /* END - Event Validation */
 
-/* BEGIN - Input direct check*/
-const borderStyleChange_ = (style) => (element) => (element.style.border = style);
-const borderStyleOnSuccess = borderStyleChange_("2px solid rgb(146, 239, 155)");
-const borderStyleOnError = borderStyleChange_("2px solid rgb(239, 146, 146)");
-
-const errorStyleChange_ = (style) => (element) => (element.style.display = style);
-const errorStyleOnSuccess = errorStyleChange_("none");
-const errorStyleOnFail = errorStyleChange_("block");
-
-const setSuccessOnForm_ = (htmlElement, errorElement) => {
-  borderStyleOnSuccess(htmlElement);
-  errorStyleOnSuccess(errorElement);
-};
-
-const setErrorOnForm_ = (htmlElement, errorElement) => {
-  borderStyleOnError(htmlElement);
-  errorStyleOnFail(errorElement);
-};
-
-const formListeners = (htmlElement, errorElement, validationFunction) => {
-  htmlElement.addEventListener("blur", () => {
-    if (validationFunction(htmlElement.value)) {
-      setSuccessOnForm_(htmlElement, errorElement);
-    } else {
-      setErrorOnForm_(htmlElement, errorElement);
-    }
-  });
-};
-/* END - Input direct check*/
-
 const createEventsListeners = () => {
-  formListeners(firstNameElement, errorFirstNameElement, isValidNameOrSurname);
-  formListeners(lastNameElement, errorLastNameElement, isValidNameOrSurname);
-  formListeners(emailElement, errorEmailElement, isValidEmail);
-  formListeners(birthDateElement, errorBirthDateElement, isValidBirthdate);
-  formListeners(quantityTournamentElement, errorQuantityElement, isValidNumber);
+  formListeners('firstName', isValidName);
+  formListeners('lastName', isValidSurname);
+  formListeners('email', isValidEmail);
+  formListeners('birthDate', isValidBirthdate);
+  formListeners('quantityTournament', isValidNumber);
 
-  signUpElement.addEventListener("click", signUpValidationEvent_);
+  elements.checkCity.forEach(townSelector);
+  elements.signUp.addEventListener("click", signUpValidationEvent_);
 };
 
 createEventsListeners();
