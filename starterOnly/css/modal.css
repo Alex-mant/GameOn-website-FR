@@ -152,7 +152,7 @@ main {
 
 /* Modal form */
 
-.button {
+.button{
   background: #fe142f;
   margin-top: 0.5em;
   padding: 1em;
@@ -204,7 +204,7 @@ main {
 }
 
 .modal-body form{
-  display: block;
+  display: none;
 }
 .confirmation-modal{
   height: 100%;
@@ -349,7 +349,7 @@ input {
 .close:after {
   transform: rotate(-45deg);
 }
-.btn-submit,
+.btn-submit,.btn-close,
 .btn-signup {
   background: #fe142f;
   display: block;
