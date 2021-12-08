@@ -7,7 +7,7 @@ closeModal();
 
 /* Issue #2,#3 et #4 */
 
-// Verificateur des champs formulaire
+// Verifie les champs du formulaire et applique message d'erreur ou confirmation.
 
 /*verificateur(champsDuFormulaire, RegularExpression, messageErreur)*/
 isValidFormFields(elements.firstName, regExpName, elements.error.firstName);

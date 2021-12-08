@@ -26,11 +26,12 @@ const isValidFormFields = (element, regExp, errorElement) =>  {
             element.style.border = "2px solid rgb(146, 239, 155)";
             errorElement.style.display = "none";
             allFieldsValid.push(regExp.test(element.value));
-            submitButton();
+            
         } else {
             element.style.border = "2px solid rgb(239, 146, 146)"            
             errorElement.style.display = "block"
         }
+        submitButton();
     });
 };
 
