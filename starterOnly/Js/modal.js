@@ -1,18 +1,17 @@
-function editNav() {
-  const x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
+/* Issue #1 */
 
-const changeModalDisplay = style => {
-  elements.modal.background.style.display = style;
-}
-const launchModal = () => changeModalDisplay('block');
-const closeModal = () => changeModalDisplay('none');
+// Ouverture Modal
+openModal();
+// Fermeture Modal
+closeModal();
 
-elements.modal.buttons.open.addEventListener("click", launchModal);
-elements.modal.buttons.close.addEventListener("click", closeModal);
-elements.modal.buttons.cross.addEventListener("click", closeModal);
+/* Issue #2,#3 et #4 */
+
+// Verificateur des champs formulaire
+
+/*verificateur(champsDuFormulaire, RegularExpression, messageErreur)*/
+isValidFormFields(elements.firstName, regExpName, elements.error.firstName);
+isValidFormFields(elements.lastName, regExpLastName, elements.error.lastName);
+isValidFormFields(elements.email, regExpEmail, elements.error.email);
+isValidFormFields(elements.birthDate, regExpBirthdate, elements.error.birthDate);
+isValidFormFields(elements.quantityTournament, regExpNumber, elements.error.quantityTournament);

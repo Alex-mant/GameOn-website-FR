@@ -4,6 +4,7 @@ const getSelectorAll = element => document.querySelectorAll(element);
 
 
 const elements = {
+  /*  elements.element  */
   formData: getSelectorAll(".formData"),
   firstName: getId("first"),
   lastName: getId("last"),
@@ -11,16 +12,19 @@ const elements = {
   birthDate: getId("birthdate"),
   quantityTournament: getId("quantity"),
   checkCity: getSelectorAll(".city-location"),
-  signUp: getSelector(".btn-submit"),
+  /*  elements.modal.element  */
   modal: {
     form: getSelector(".modal-body form"),
     background: getSelector(".bground"),
+    /*  elements.modal.buttons.element  */
     buttons: {
       open: getSelector(".modal-btn"),
       close: getSelector(".btn-close"),
-      cross: getSelector(".close")
-    }
+      cross: getSelector(".close"),
+      submit: getSelector(".btn-submit"),
+    },
   },
+  /*  elements.error.element  */
   error: {
     firstName: getSelector("p.error-fName"),
     lastName: getSelector("p.error-lName"),
