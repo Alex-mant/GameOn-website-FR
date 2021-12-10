@@ -48,13 +48,16 @@ const isValidFormFields = (element, regExp, errorElement, keyName) => {
 
 /* Affiche un message d'erreur sous le bouton submit demandant
 la prise de connaissance des conditions d'utilisation */
-const isTermsOfUseChecked = () => {
+const isTermsOfUseChecked = (keyName) => {
     elements.termsOfUse.addEventListener("click", () => {
-        if (!elements.termsOfUse.checked === true) {
-            elements.error.termsOfUse.style.visibility = "visible";
-        } else {
+        if (elements.termsOfUse.checked === true) {
             elements.error.termsOfUse.style.visibility = "hidden";
+            validInputs[keyName] = true;
+        } else {
+            elements.error.termsOfUse.style.visibility = "visible";
+            validInputs[keyName] = false;
         }
+        updateSubmitButton();
     });
 };
 
@@ -80,7 +83,7 @@ const updateSubmitButton = () => {
         elements.modal.buttons.submit.style.backgroundColor = "#fe142f";
         elements.modal.buttons.submit.disabled = false;
     } else {
-        elements.modal.buttons.submit.style.backgroundColor = "grey";
+        elements.modal.buttons.submit.style.backgroundColor = "#585555";
         elements.modal.buttons.submit.disabled = true;
     }
 };
