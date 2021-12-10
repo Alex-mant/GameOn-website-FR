@@ -20,7 +20,7 @@ const elements = {
     background: getSelector(".bground"),
     /*  elements.modal.buttons.element  */
     buttons: {
-      open: getSelector(".modal-btn"),
+      open: getSelectorAll(".modal-btn"),
       close: getSelector(".btn-close"),
       cross: getSelector(".close"),
       submit: getSelector(".btn-submit"),

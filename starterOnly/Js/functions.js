@@ -1,11 +1,21 @@
-// Issue#1
+function editNav() {
+    const x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
 
+// Issue#1
 
 /* Ouverture Modal */
 const openModal = () => {
-    elements.modal.buttons.open.addEventListener("click", () => {
-        elements.modal.background.style.display = "block";
-    });
+    elements.modal.buttons.open.forEach(item => {
+        item.addEventListener("click", () => {
+            elements.modal.background.style.display = "block";
+        });
+    });    
 };
 
 /*  Fermeture Modal */
@@ -94,6 +104,5 @@ const eventListenerSubmitButton = () => {
         event.preventDefault();
         elements.modal.form.style.display = "none";
         elements.modal.confirmForm.style.display = "block";
-        console.log(validInputs);
     });
 };

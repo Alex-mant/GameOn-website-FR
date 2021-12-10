@@ -14,7 +14,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
+  background-color: #fff;
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -28,6 +28,7 @@ p {
 
 img {
   padding-right: 1rem;
+  object-fit: cover;
 }
 
 .topnav {
@@ -504,7 +505,7 @@ input {
   grid-column: span 8;
 }
 .hero-img img {
-  width: 100%;
+  width: 104%;
   height: 100%;
   display: block;
   padding: 0;
@@ -539,6 +540,10 @@ footer {
     padding: 2vw;
     width: 175px;
   }
+  button.btn-signup.modal-btn {
+    position: relative;
+    left: 30%;
+  }
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -554,8 +559,7 @@ footer {
     content: unset;
   }
   .hero-content .btn-signup {
-    position: absolute;
-    bottom: -500px;
+    display: none;
     left: 29%;
   }
   .hero-headline {
