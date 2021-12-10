@@ -37,3 +37,4 @@ const elements = {
     termsOfUse: getSelector("span.error-termsOfUse"),
   },
 };
+

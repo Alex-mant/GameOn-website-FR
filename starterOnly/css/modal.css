@@ -122,17 +122,17 @@ main {
 .error-bDate,
 .error-eMail,
 .error-qValue,
-.error-city{
+.error-city {
   color: red;
   font-size: 12px;
   display: none;
 }
-.container-error-termsOfUse{
+.container-error-termsOfUse {
   display: flex;
   justify-content: center;
   margin-top: 10px;
 }
-.error-termsOfUse{
+.error-termsOfUse {
   color: red;
   visibility: hidden;
   font-size: 12px;
@@ -252,7 +252,7 @@ input {
   font-size: 20px;
   height: 48px;
 }
-.formData{
+.formData {
   position: relative;
 }
 .formData[data-error]::after {
@@ -273,10 +273,10 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-.checkbox1{
+.checkbox1 {
   margin-top: 10px;
 }
-.checkbox2{
+.checkbox2 {
   margin-bottom: 15px;
 }
 .checkbox-label,
@@ -525,17 +525,17 @@ footer {
   margin: 0 20px;
 }
 @media screen and (max-width: 800px) {
-  body{
+  body {
     position: relative;
     width: 414px;
     height: 736px;
-    background: #FFFFFF;
+    background: #ffffff;
   }
-  .topnav{
+  .topnav {
     overflow: visible;
     margin: 0;
   }
-  .header-logo img{
+  .header-logo img {
     padding: 2vw;
     width: 175px;
   }
