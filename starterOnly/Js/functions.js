@@ -42,7 +42,7 @@ const isValidFormFields = (element, regExp, errorElement, keyName) => {
             errorElement.style.display = "block";
             validInputs[keyName] = false;
         }
-        updateSubmitButton();
+        updateSubmitButton(); /* Met a jour l'état du bouton submit */
     });
 };
 
@@ -57,7 +57,7 @@ const isTermsOfUseChecked = (keyName) => {
             elements.error.termsOfUse.style.visibility = "visible";
             validInputs[keyName] = false;
         }
-        updateSubmitButton();
+        updateSubmitButton(); /* Met a jour l'état du bouton submit */
     });
 };
 
@@ -94,5 +94,6 @@ const eventListenerSubmitButton = () => {
         event.preventDefault();
         elements.modal.form.style.display = "none";
         elements.modal.confirmForm.style.display = "block";
+        console.log(validInputs);
     });
 };
