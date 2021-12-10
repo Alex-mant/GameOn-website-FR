@@ -103,7 +103,7 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: 0px;
+    margin-top: 5px;
   }
 }
 
@@ -539,6 +539,7 @@ footer {
   .header-logo img {
     padding: 2vw;
     width: 175px;
+    margin-top: 5px;
   }
   button.btn-signup.modal-btn {
     position: relative;
