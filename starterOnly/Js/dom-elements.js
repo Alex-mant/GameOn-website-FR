@@ -1,7 +1,6 @@
-const getId = element => document.getElementById(element);
-const getSelector = element => document.querySelector(element);
-const getSelectorAll = element => document.querySelectorAll(element);
-
+const getId = (element) => document.getElementById(element);
+const getSelector = (element) => document.querySelector(element);
+const getSelectorAll = (element) => document.querySelectorAll(element);
 
 const elements = {
   /*  elements.element  */
@@ -12,11 +11,11 @@ const elements = {
   birthDate: getId("birthdate"),
   quantityTournament: getId("quantity"),
   checkCity: getSelectorAll(".city-location"),
-  termsOfUse : getSelector("#checkbox1"),
+  termsOfUse: getSelector("#checkbox1"),
   /*  elements.modal.element  */
   modal: {
     form: getSelector(".modal-body form"),
-    confirmForm : getSelector(".confirm-container"),
+    confirmForm: getSelector(".confirm-container"),
     background: getSelector(".bground"),
     /*  elements.modal.buttons.element  */
     buttons: {
@@ -37,4 +36,3 @@ const elements = {
     termsOfUse: getSelector("span.error-termsOfUse"),
   },
 };
-
