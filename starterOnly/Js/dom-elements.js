@@ -12,9 +12,11 @@ const elements = {
   birthDate: getId("birthdate"),
   quantityTournament: getId("quantity"),
   checkCity: getSelectorAll(".city-location"),
+  termsOfUse : getSelector("#checkbox1"),
   /*  elements.modal.element  */
   modal: {
     form: getSelector(".modal-body form"),
+    confirmForm : getSelector(".confirm-container"),
     background: getSelector(".bground"),
     /*  elements.modal.buttons.element  */
     buttons: {
@@ -32,5 +34,6 @@ const elements = {
     birthDate: getSelector("p.error-bDate"),
     city: getSelector("p.error-city"),
     quantityTournament: getSelector("p.error-qValue"),
+    termsOfUse: getSelector("span.error-termsOfUse"),
   },
 };
