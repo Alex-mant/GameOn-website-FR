@@ -30,7 +30,7 @@ const closeModal = () => {
 
 // Issue#2, #3 et #4
 
-/* Initialisation stockage */
+/* Initialisation stockage de l'état des inputs. false par defaut */
 const validInputs = {
   firstName: false,
   lastName: false,
@@ -45,7 +45,6 @@ const isValidFormFields = (element, regExp, errorElement, keyName) => {
     if (regExp.test(element.value)) {
       element.style.border = "2px solid rgb(146, 239, 155)";
       errorElement.style.display = "none";
-      saveUserInfo(element);
       validInputs[keyName] = true;
     } else {
       element.style.border = "2px solid rgb(239, 146, 146)";
@@ -69,18 +68,6 @@ const isTermsOfUseChecked = (keyName) => {
     }
     updateSubmitButton(); /* Met a jour l'état du bouton submit */
   });
-};
-
-/* stock les données utilisateur dans un objet,
-permettant ensuite de l'utiliser afin de verifier la complétion de tout les champs */
-const saveUserInfo = (element) => {
-  const userInfo = {};
-
-  let inputs = document.getElementsByTagName("input");
-  for (i = 0; i < inputs.length; i++) {
-    userInfo[inputs[i].name] = inputs[i].value;
-  }
-  userInfo.element = element.value;
 };
 
 const everyInputIsValid = () => Object.values(validInputs).every((input) => input === true);
