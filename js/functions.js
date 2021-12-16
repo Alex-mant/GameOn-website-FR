@@ -7,10 +7,12 @@ const editNav = () => {
   }
 }
 
+
 // Issue#1
 
 /* Ouverture Modal */
 const openModal = () => {
+  
   elements.modal.buttons.open.forEach((item) => {
     item.addEventListener("click", () => {
       elements.modal.background.style.display = "block";
@@ -22,8 +24,9 @@ const openModal = () => {
 const closeModal = () => {
   const eventCloseModal = () => {
     elements.modal.background.style.display = "none";
+    reset();
   };
-
+  
   elements.modal.buttons.close.addEventListener("click", eventCloseModal);
   elements.modal.buttons.cross.addEventListener("click", eventCloseModal);
 };
@@ -90,4 +93,23 @@ const eventListenerSubmitButton = () => {
     elements.modal.form.style.display = "none";
     elements.modal.confirmForm.style.display = "block";
   });
+};
+
+/* Reset champs formulaire  */
+const reset = () => {
+  elements.modal.form.reset();
+  elements.modal.form.style.display = "block";
+  elements.modal.confirmForm.style.display = "none";
+  elements.modal.buttons.submit.style.backgroundColor = "#585555";
+  elements.modal.buttons.submit.disabled = true;
+  elements.firstName.style.border = "none"
+  elements.error.firstName.style.display = "none"
+  elements.lastName.style.border = "none"
+  elements.error.lastName.style.display = "none"
+  elements.birthDate.style.border = "none"
+  elements.error.birthDate.style.display = "none"
+  elements.quantityTournament.style.border = "none"
+  elements.error.quantityTournament.style.display = "none"
+  elements.email.style.border = "none"
+  elements.error.email.style.display = "none"
 };
