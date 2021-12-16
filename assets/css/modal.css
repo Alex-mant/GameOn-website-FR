@@ -3,11 +3,13 @@
   --font-slab: var(--font-default);
   --modal-duration: 0.8s;
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 /* Landing Page */
 
 body {
@@ -111,7 +113,7 @@ main {
   cursor: pointer;
 }
 
-button.btn-responsive{
+button.btn-responsive {
   display: none;
 }
 
@@ -468,9 +470,8 @@ input {
 }
 
 .hero-img img {
-  width: 100%;
-  height: 100%;
   aspect-ratio: 12/9;
+  height: 100%;
   object-fit: cover;
   display: block;
   padding: 0;

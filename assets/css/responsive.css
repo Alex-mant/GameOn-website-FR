@@ -51,10 +51,12 @@
   }
   button.btn-signup.modal-btn {
     position: relative;
-    top: 0;
-    left: 30%;
+    top: -25px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .hero-section {
+    height: unset;
     display: block;
     box-shadow: unset;
   }
@@ -74,7 +76,7 @@
   .hero-headline {
     font-size: 2.5rem;
     white-space: normal;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
   }
   .hero-text {
     width: 80%;
@@ -83,6 +85,7 @@
     top: 0px;
   }
   .hero-img img {
+    width: 100%;
     border-radius: 10px;
     position: relative;
     top: 0;
@@ -93,12 +96,13 @@
     padding: 12px 35px;
   }
   .copyrights {
+    margin: 30px auto 0;
     text-align: center;
   }
-  .content{
+  .content {
     margin: 12% auto;
   }
-  .bground{
+  .bground {
     background-color: rgba(256, 256, 256, 0);
   }
 }
