@@ -5,14 +5,12 @@ const editNav = () => {
   } else {
     x.className = "topnav";
   }
-}
-
+};
 
 // Issue#1
 
 /* Ouverture Modal */
 const openModal = () => {
-  
   elements.modal.buttons.open.forEach((item) => {
     item.addEventListener("click", () => {
       elements.modal.background.style.display = "block";
@@ -26,7 +24,7 @@ const closeModal = () => {
     elements.modal.background.style.display = "none";
     reset();
   };
-  
+
   elements.modal.buttons.close.addEventListener("click", eventCloseModal);
   elements.modal.buttons.cross.addEventListener("click", eventCloseModal);
 };
@@ -54,8 +52,8 @@ const isValidFormFields = (element, regExp, errorElement, keyName) => {
       errorElement.style.display = "block";
       validInputs[keyName] = false;
     }
-    isTermsOfUseChecked();/*  verificateur des conditions d'utilisation */
-    updateSubmitButton();/* Met a jour l'état du bouton submit */
+    isTermsOfUseChecked(); /*  verificateur des conditions d'utilisation */
+    updateSubmitButton(); /* Met a jour l'état du bouton submit */
   });
 };
 
@@ -70,7 +68,7 @@ const isTermsOfUseChecked = () => {
       elements.error.termsOfUse.style.visibility = "visible";
       validInputs["termsOfUse"] = false;
     }
-    updateSubmitButton();/* Met a jour l'état du bouton submit */
+    updateSubmitButton(); /* Met a jour l'état du bouton submit */
   });
 };
 
@@ -103,14 +101,14 @@ const reset = () => {
   elements.modal.confirmForm.style.display = "none";
   elements.modal.buttons.submit.style.backgroundColor = "#585555";
   elements.modal.buttons.submit.disabled = true;
-  elements.firstName.style.border = "none"
-  elements.error.firstName.style.display = "none"
-  elements.lastName.style.border = "none"
-  elements.error.lastName.style.display = "none"
-  elements.birthDate.style.border = "none"
-  elements.error.birthDate.style.display = "none"
-  elements.quantityTournament.style.border = "none"
-  elements.error.quantityTournament.style.display = "none"
-  elements.email.style.border = "none"
-  elements.error.email.style.display = "none"
+  elements.firstName.style.border = "none";
+  elements.error.firstName.style.display = "none";
+  elements.lastName.style.border = "none";
+  elements.error.lastName.style.display = "none";
+  elements.birthDate.style.border = "none";
+  elements.error.birthDate.style.display = "none";
+  elements.quantityTournament.style.border = "none";
+  elements.error.quantityTournament.style.display = "none";
+  elements.email.style.border = "none";
+  elements.error.email.style.display = "none";
 };
