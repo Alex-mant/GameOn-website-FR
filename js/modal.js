@@ -14,7 +14,7 @@ isValidFormFields(elements.lastName, regExpLastName, elements.error.lastName, "l
 isValidFormFields(elements.email, regExpEmail, elements.error.email, "email");
 isValidFormFields(elements.birthDate, regExpBirthdate, elements.error.birthDate, "birthDate");
 isValidFormFields(elements.quantityTournament, regExpNumber, elements.error.quantityTournament, "quantityTournament");
-
+isTermsOfUseChecked();
 /* Bouton d'envoi formulaire */
 updateSubmitButton();
 eventListenerSubmitButton();
