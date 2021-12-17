@@ -54,22 +54,23 @@ const isValidFormFields = (element, regExp, errorElement, keyName) => {
       errorElement.style.display = "block";
       validInputs[keyName] = false;
     }
-    updateSubmitButton(); /* Met a jour l'état du bouton submit */
+    isTermsOfUseChecked();/*  verificateur des conditions d'utilisation */
+    updateSubmitButton();/* Met a jour l'état du bouton submit */
   });
 };
 
 /* Affiche un message d'erreur sous le bouton submit demandant
 la prise de connaissance des conditions d'utilisation */
-const isTermsOfUseChecked = (keyName) => {
+const isTermsOfUseChecked = () => {
   elements.termsOfUse.addEventListener("click", () => {
     if (elements.termsOfUse.checked === true) {
       elements.error.termsOfUse.style.visibility = "hidden";
-      validInputs[keyName] = true;
+      validInputs["termsOfUse"] = true;
     } else {
       elements.error.termsOfUse.style.visibility = "visible";
-      validInputs[keyName] = false;
+      validInputs["termsOfUse"] = false;
     }
-    updateSubmitButton(); /* Met a jour l'état du bouton submit */
+    updateSubmitButton();/* Met a jour l'état du bouton submit */
   });
 };
 
