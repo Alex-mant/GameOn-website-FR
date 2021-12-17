@@ -96,6 +96,11 @@ const eventListenerSubmitButton = () => {
 
 /* Reset champs formulaire  */
 const reset = () => {
+  validInputs.firstName = false;
+  validInputs.lastName = false;
+  validInputs.email = false;
+  validInputs.quantityTournament = false;
+  validInputs.birthDate = false;
   elements.modal.form.reset();
   elements.modal.form.style.display = "block";
   elements.modal.confirmForm.style.display = "none";
