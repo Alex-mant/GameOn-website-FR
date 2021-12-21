@@ -18,4 +18,3 @@ isTermsOfUseChecked();
 
 /* Bouton d'envoi formulaire */
 updateSubmitButton();
-eventListenerSubmitButton();

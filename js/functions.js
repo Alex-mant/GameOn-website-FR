@@ -20,13 +20,16 @@ const openModal = () => {
 
 /*  Fermeture Modal */
 const closeModal = () => {
-  const eventCloseModal = () => {
+  const eventCloseModalWithCross = () => {
+    elements.modal.background.style.display = "none";
+  };
+  const eventCloseModalWithClose = () => {
     elements.modal.background.style.display = "none";
     reset();
   };
 
-  elements.modal.buttons.close.addEventListener("click", eventCloseModal);
-  elements.modal.buttons.cross.addEventListener("click", eventCloseModal);
+  elements.modal.buttons.close.addEventListener("click", eventCloseModalWithClose);
+  elements.modal.buttons.cross.addEventListener("click", eventCloseModalWithCross);
 };
 
 // Issue#2, #3 et #4
@@ -52,8 +55,8 @@ const isValidFormFields = (element, regExp, errorElement, keyName) => {
       errorElement.style.display = "block";
       validInputs[keyName] = false;
     }
+    updateSubmitButton(); 
     isTermsOfUseChecked(); /*  verificateur des conditions d'utilisation */
-    updateSubmitButton(); /* Met a jour l'état du bouton submit */
   });
 };
 
@@ -79,6 +82,7 @@ const updateSubmitButton = () => {
   if (everyInputIsValid() === true) {
     elements.modal.buttons.submit.style.backgroundColor = "#fe142f";
     elements.modal.buttons.submit.disabled = false;
+    formValid();
   } else {
     elements.modal.buttons.submit.style.backgroundColor = "#585555";
     elements.modal.buttons.submit.disabled = true;
@@ -86,7 +90,7 @@ const updateSubmitButton = () => {
 };
 
 /* Création de l'évenement au click permettant d'afficher le message de confirmation */
-const eventListenerSubmitButton = () => {
+const formValid = () => {
   elements.modal.buttons.submit.addEventListener("click", (event) => {
     event.preventDefault();
     elements.modal.form.style.display = "none";
@@ -99,36 +103,5 @@ const reset = () => {
 
   /* reset valeur champs formulaire */
   elements.modal.form.reset();
-
-  /* reset valeurs des validInputs */
-  validInputs.firstName = false;
-  validInputs.lastName = false;
-  validInputs.email = false;
-  validInputs.quantityTournament = false;
-  validInputs.birthDate = false;
-
-  /* reset affichage form */
-  elements.modal.form.style.display = "block";
-  elements.modal.confirmForm.style.display = "none";
-
-  /* reset état button */
-  elements.modal.buttons.submit.style.backgroundColor = "#585555";
-  elements.modal.buttons.submit.disabled = true;
-
-  /* reset état border/error champs */
-  // firstName
-  elements.firstName.style.border = "none";
-  elements.error.firstName.style.display = "none";
-  // lastName
-  elements.lastName.style.border = "none";
-  elements.error.lastName.style.display = "none";
-  // birthDate
-  elements.birthDate.style.border = "none";
-  elements.error.birthDate.style.display = "none";
-  // quantityTournament
-  elements.quantityTournament.style.border = "none";
-  elements.error.quantityTournament.style.display = "none";
-  // email
-  elements.email.style.border = "none";
-  elements.error.email.style.display = "none";
+  location.reload(true);
 };
