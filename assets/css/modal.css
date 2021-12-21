@@ -26,7 +26,7 @@ body {
 
 p {
   margin-bottom: 0;
-  padding: 0.5vw;
+  padding: 0.5vw 0;
 }
 
 img {
@@ -40,14 +40,11 @@ img {
   display: flex;
   justify-content: space-between;
 }
-.header-logo {
-  /* float: left; */
-}
+
 .main-navbar {
   display: flex;
 }
 .topnav a {
-  /* float: left; */
   display: block;
   color: #000000;
   text-align: center;
@@ -86,11 +83,22 @@ main {
 .error-lName,
 .error-bDate,
 .error-eMail,
-.error-qValue,
-.error-city {
+.error-qValue {
+  margin: 5px;
   color: red;
   font-size: 12px;
   display: none;
+  font-weight: bold; 
+}
+
+span.error-qValue{
+  height:0 ;
+}
+.error-placement{
+  height: 0;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
 }
 .container-error-termsOfUse {
   display: flex;
@@ -207,7 +215,7 @@ label {
   font-size: 17px;
   font-weight: normal;
   display: inline-block;
-  margin-bottom: 11px;
+  margin: 5px 0 11px;
 }
 input {
   padding: 8px;

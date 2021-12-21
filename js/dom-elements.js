@@ -32,7 +32,7 @@ const elements = {
     email: getSelector("p.error-eMail"),
     birthDate: getSelector("p.error-bDate"),
     city: getSelector("p.error-city"),
-    quantityTournament: getSelector("p.error-qValue"),
+    quantityTournament: getSelector("span.error-qValue"),
     termsOfUse: getSelector("span.error-termsOfUse"),
   },
 };
