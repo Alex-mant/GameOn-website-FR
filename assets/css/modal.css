@@ -37,15 +37,17 @@ img {
 .topnav {
   overflow: hidden;
   margin: 53px 100px;
+  display: flex;
+  justify-content: space-between;
 }
 .header-logo {
-  float: left;
+  /* float: left; */
 }
 .main-navbar {
-  float: right;
+  display: flex;
 }
 .topnav a {
-  float: left;
+  /* float: left; */
   display: block;
   color: #000000;
   text-align: center;
