@@ -31,7 +31,8 @@ p {
 
 img {
   padding-right: 1rem;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .topnav {
@@ -88,13 +89,13 @@ main {
   color: red;
   font-size: 12px;
   display: none;
-  font-weight: bold; 
+  font-weight: bold;
 }
 
-span.error-qValue{
-  height:0 ;
+span.error-qValue {
+  height: 0;
 }
-.error-placement{
+.error-placement {
   height: 0;
   display: flex;
   justify-content: space-between;
@@ -177,8 +178,10 @@ button.btn-responsive {
   margin: 5% auto;
   width: 100%;
   max-width: 31.25rem;
-  animation-name: modalopen;
-  animation-duration: var(--modal-duration);
+  -webkit-animation-name: modalopen;
+          animation-name: modalopen;
+  -webkit-animation-duration: var(--modal-duration);
+          animation-duration: var(--modal-duration);
   background: #232323;
   border-radius: 10px;
   overflow: hidden;
@@ -482,7 +485,8 @@ input {
 .hero-img img {
   aspect-ratio: 12/9;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
   padding: 0;
 }
@@ -498,6 +502,16 @@ input {
 }
 footer {
   margin: 0 100px;
+}
+
+@-webkit-keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes modalopen {

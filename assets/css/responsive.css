@@ -6,14 +6,14 @@
     display: block;
     margin-top: 5px;
   }
-  .main-navbar{
+  .main-navbar {
     flex-wrap: wrap;
     padding: 2% 0;
   }
-  a.menu{
+  a.menu {
     font-size: 16px;
   }
-  .header_logo-menu{
+  .header_logo-menu {
     display: flex;
     justify-content: space-between;
   }
@@ -57,10 +57,10 @@
     margin: 0;
   }
 
-  .header_logo-menu{
+  .header_logo-menu {
     padding: 0;
   }
- 
+
   .header-logo img {
     padding: 1.8vw;
     width: 35vw;
@@ -131,10 +131,14 @@
 }
 
 @media screen and (max-width: 360px) {
-  label{
+  label {
     font-size: 12px;
   }
-  .error-fName, .error-lName, .error-bDate, .error-eMail, .error-qValue{
+  .error-fName,
+  .error-lName,
+  .error-bDate,
+  .error-eMail,
+  .error-qValue {
     font-size: 10px;
   }
 }
