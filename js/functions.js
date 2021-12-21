@@ -94,26 +94,41 @@ const eventListenerSubmitButton = () => {
   });
 };
 
-/* Reset champs formulaire  */
+/* Reset formulaire  */
 const reset = () => {
+
+  /* reset valeur champs formulaire */
+  elements.modal.form.reset();
+
+  /* reset valeurs des validInputs */
   validInputs.firstName = false;
   validInputs.lastName = false;
   validInputs.email = false;
   validInputs.quantityTournament = false;
   validInputs.birthDate = false;
-  elements.modal.form.reset();
+
+  /* reset affichage form */
   elements.modal.form.style.display = "block";
   elements.modal.confirmForm.style.display = "none";
+
+  /* reset état button */
   elements.modal.buttons.submit.style.backgroundColor = "#585555";
   elements.modal.buttons.submit.disabled = true;
+
+  /* reset état border/error champs */
+  // firstName
   elements.firstName.style.border = "none";
   elements.error.firstName.style.display = "none";
+  // lastName
   elements.lastName.style.border = "none";
   elements.error.lastName.style.display = "none";
+  // birthDate
   elements.birthDate.style.border = "none";
   elements.error.birthDate.style.display = "none";
+  // quantityTournament
   elements.quantityTournament.style.border = "none";
   elements.error.quantityTournament.style.display = "none";
+  // email
   elements.email.style.border = "none";
   elements.error.email.style.display = "none";
 };
