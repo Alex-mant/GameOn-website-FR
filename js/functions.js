@@ -7,8 +7,6 @@ const editNav = () => {
   }
 };
 
-// Issue#1
-
 /* Ouverture Modal */
 const openModal = () => {
   elements.modal.buttons.open.forEach((item) => {
@@ -18,18 +16,19 @@ const openModal = () => {
   });
 };
 
+// Issue#1
+
 /*  Fermeture Modal */
 const closeModal = () => {
-  const eventCloseModalWithCross = () => {
+  const eventCloseModal = () => {
     elements.modal.background.style.display = "none";
-  };
-  const eventCloseModalWithClose = () => {
-    elements.modal.background.style.display = "none";
+    elements.modal.confirmForm.style.display = "none";
+    elements.modal.form.style.display = "block";
     reset();
   };
 
-  elements.modal.buttons.close.addEventListener("click", eventCloseModalWithClose);
-  elements.modal.buttons.cross.addEventListener("click", eventCloseModalWithCross);
+  elements.modal.buttons.close.addEventListener("click", eventCloseModal);
+  elements.modal.buttons.cross.addEventListener("click", eventCloseModal);
 };
 
 // Issue#2, #3 et #4
@@ -43,19 +42,29 @@ const validInputs = {
   quantityTournament: false,
 };
 
+setInputsValue = () => {
+  validInputs.firstName = false;
+  validInputs.lastName = false;
+  validInputs.email = false;
+  validInputs.birthDate = false;
+  validInputs.quantityTournament = false;
+};
+
 /* Verifie les entrées formulaire affichant message(s) d'erreur si besoin */
 const isValidFormFields = (element, regExp, errorElement, keyName) => {
-  element.addEventListener("blur", () => {
+  element.addEventListener("input", () => {
     if (regExp.test(element.value)) {
-      element.style.border = "2px solid rgb(146, 239, 155)";
-      errorElement.style.display = "none";
       validInputs[keyName] = true;
+      element.classList.remove("border_error");
+      element.classList.add("border_sucess");
+      errorElement.style.display = "none";
     } else {
-      element.style.border = "2px solid rgb(239, 146, 146)";
-      errorElement.style.display = "block";
       validInputs[keyName] = false;
+      element.classList.remove("border_sucess");
+      element.classList.add("border_error");
+      errorElement.style.display = "block";
     }
-    updateSubmitButton(); 
+    updateSubmitButton();
     isTermsOfUseChecked(); /*  verificateur des conditions d'utilisation */
   });
 };
@@ -78,6 +87,7 @@ const isTermsOfUseChecked = () => {
 const everyInputIsValid = () => Object.values(validInputs).every((input) => input === true);
 
 /* Met a jour l'état du bouton submit en fonction de la conformité du formulaire */
+
 const updateSubmitButton = () => {
   if (everyInputIsValid() === true) {
     elements.modal.buttons.submit.style.backgroundColor = "#fe142f";
@@ -100,8 +110,13 @@ const formValid = () => {
 
 /* Reset formulaire  */
 const reset = () => {
-
-  /* reset valeur champs formulaire */
   elements.modal.form.reset();
-  location.reload(true);
+  setInputsValue();
+  updateSubmitButton();
+  const resetElements = document.querySelectorAll("#my-form input");
+  for (let i = 0, element; (element = resetElements[i++]); ) {
+    if (element.value === "") {
+      element.classList.remove("border_sucess");
+    }
+  }
 };

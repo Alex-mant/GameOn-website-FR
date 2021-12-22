@@ -1,0 +1,6 @@
+.border_sucess{
+    border: 2px solid rgb(146, 239, 155);
+}
+.border_error{
+    border: 2px solid rgb(239, 146, 146)
+}

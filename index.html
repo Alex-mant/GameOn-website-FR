@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=0.8" />
     <link rel="stylesheet" href="./assets/css/modal.css" />
     <link rel="stylesheet" href="./assets/css/responsive.css" />
+    <link rel="stylesheet" href="./assets/css/class js.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet" />
     <script src="./js/dom-elements.js" defer></script>
@@ -55,7 +56,7 @@
         <div class="content">
           <span class="close"></span>
           <div class="modal-body">
-            <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
+            <form id="my-form" name="reserve" action="index.html" method="get" onsubmit="return validate();">
               <div class="formData">
                 <div class="error-placement"><label>Prénom</label><p class="error-fName">Veuillez entrer votre prénom - 2 caratères minimum</p></div><br />
                 <input class="text-control" type="text" id="first" name="first" minlength="2" required /><br />
